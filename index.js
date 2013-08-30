@@ -1,7 +1,17 @@
-function cdefine(blocks) {
+function cdefine(blocks, opts) {
+
+    opts = opts || {};
     
     if (!Array.isArray(blocks)) {
         blocks = [blocks];
+    }
+
+    function v(val) {
+        if (opts.hex && (typeof val === 'number') && (Math.floor(val) === val)) {
+            return '0x' + val.toString(16).toUpperCase();
+        } else {
+            return val;
+        }
     }
 
     var str = '';
@@ -12,7 +22,7 @@ function cdefine(blocks) {
             str += "\n";
 
         Object.keys(block).forEach(function(k) {
-            str += "#define " + k + " " + block[k] + "\n";
+            str += "#define " + k + " " + v(block[k]) + "\n";
         });
 
     });

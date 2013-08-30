@@ -18,3 +18,8 @@ assert.equal(
         {e: 'f', g: 'h'}
     ])
 );
+
+assert.equal(
+    "#define a 0xFF\n",
+    cdefine({a: 255}, {hex: true})
+);
