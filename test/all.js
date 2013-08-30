@@ -23,3 +23,9 @@ assert.equal(
     "#define a 0xFF\n",
     cdefine({a: 255}, {hex: true})
 );
+
+assert.equal(
+    "#define FOO_BAR 255\n" +
+    "#define FOO_BAZ 254\n",
+    cdefine({BAR: 255, BAZ: 254}, {prefix: 'FOO_'})
+);

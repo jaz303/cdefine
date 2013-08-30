@@ -1,6 +1,8 @@
 function cdefine(blocks, opts) {
 
     opts = opts || {};
+
+    var prefix = opts.prefix || '';
     
     if (!Array.isArray(blocks)) {
         blocks = [blocks];
@@ -22,7 +24,7 @@ function cdefine(blocks, opts) {
             str += "\n";
 
         Object.keys(block).forEach(function(k) {
-            str += "#define " + k + " " + v(block[k]) + "\n";
+            str += "#define " + prefix + k + " " + v(block[k]) + "\n";
         });
 
     });
