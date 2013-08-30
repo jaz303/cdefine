@@ -1,6 +1,6 @@
 {
   "name": "cdefine",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generate C #defines from objects",
   "main": "index.js",
   "directories": {
